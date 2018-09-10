@@ -1,2 +1,2 @@
-# CG2028-Assignment-1
+# Image Classification Project
 Cortex M3
