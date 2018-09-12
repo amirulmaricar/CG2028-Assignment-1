@@ -161,14 +161,14 @@
  132              	.Letext0:
 DEFINED SYMBOLS
                             *ABS*:00000000 main.c
-C:\Users\ADMINC~1\AppData\Local\Temp\ccWemTX9.s:19     .rodata:00000000 $d
-C:\Users\ADMINC~1\AppData\Local\Temp\ccWemTX9.s:20     .rodata:00000000 .LC1
-C:\Users\ADMINC~1\AppData\Local\Temp\ccWemTX9.s:25     .rodata:00000008 .LC0
-C:\Users\ADMINC~1\AppData\Local\Temp\ccWemTX9.s:36     .text.main:00000000 $t
-C:\Users\ADMINC~1\AppData\Local\Temp\ccWemTX9.s:41     .text.main:00000000 main
-C:\Users\ADMINC~1\AppData\Local\Temp\ccWemTX9.s:129    .bss:00000000 loop.3818
-C:\Users\ADMINC~1\AppData\Local\Temp\ccWemTX9.s:122    .text.main:00000088 $d
-C:\Users\ADMINC~1\AppData\Local\Temp\ccWemTX9.s:128    .bss:00000000 $d
+C:\Users\User\AppData\Local\Temp\cceVDdA2.s:19     .rodata:00000000 $d
+C:\Users\User\AppData\Local\Temp\cceVDdA2.s:20     .rodata:00000000 .LC1
+C:\Users\User\AppData\Local\Temp\cceVDdA2.s:25     .rodata:00000008 .LC0
+C:\Users\User\AppData\Local\Temp\cceVDdA2.s:36     .text.main:00000000 $t
+C:\Users\User\AppData\Local\Temp\cceVDdA2.s:41     .text.main:00000000 main
+C:\Users\User\AppData\Local\Temp\cceVDdA2.s:129    .bss:00000000 loop.3818
+C:\Users\User\AppData\Local\Temp\cceVDdA2.s:122    .text.main:00000088 $d
+C:\Users\User\AppData\Local\Temp\cceVDdA2.s:128    .bss:00000000 $d
                      .debug_frame:00000010 $d
 
 UNDEFINED SYMBOLS
