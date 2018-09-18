@@ -10,18 +10,16 @@ pdm:
 
 		/** Here we push all data values from register 3-11
 		into the stack */
-
 		STMDB SP!,{R3-R11} //NA
 
-		/** Here we subtract one from the order of
-		confusion matrix */
 		LDR R12, [R0]		//0x0490C000
 
-		//offset addresser
+		//** Here we move the address of memory location 
+		containing element (1,1) */
 		MOV R3, R0 			//0x01A03000
 
 		/** Here we calculate the offset mnumber for row
-		and lode the n(mm) value in R3 for devision */
+		and load the n(mm) value in R3 for division */
 		MOV R4, #4			//0x03A04004
 		MUL R4, R4, R1		//0x00004114
 		ADD R4, #4			//0x02844004
@@ -31,6 +29,8 @@ pdm:
 		MOVW R4,#10000		//NA
 		MUL R3,R3,R4		//0x00003413
 
+		/** Here we subtract one from the order of
+		confusion matrix */
 		SUB R1, 1			//0x02411001
 
 		/** 1) Here we loop for M number times, when
@@ -45,6 +45,6 @@ LOOP:
 
 		UDIV R0,R3,R12		//NA
 
-		LDMIA SP!,{R3-R11} // POP back the datas for R1-R12.
+		LDMIA SP!,{R3-R11} // POP back the datas for R3-R11.
 
 		BX	LR
