@@ -6,10 +6,10 @@
  	.thumb_func
 
 pdm:
-@ write the code for pdm(CM,M,index) here
+@ The code for pdm(CM,M,index) starts here
 
 		/** Here we push all data values from register 3-11
-		into the stack	*/
+		into the stack */
 
 		STMDB SP!,{R3-R11} //NA
 
@@ -18,11 +18,11 @@ pdm:
 		LDR R12, [R0]		//0x0490C000
 
 		//offset addresser
-		MOV R3, R0 			//03464FF0( nOT SURE)
+		MOV R3, R0 			//0x01A03000
 
 		/** Here we calculate the offset mnumber for row
 		and lode the n(mm) value in R3 for devision */
-		MOV R4, #4			//040404FB (NOT SURE)
+		MOV R4, #4			//0x03A04004
 		MUL R4, R4, R1		//0x00004114
 		ADD R4, #4			//0x02844004
 		MUL R4,R2,R4		//0x00004412
@@ -33,10 +33,9 @@ pdm:
 
 		SUB R1, 1			//0x02411001
 
-		/**
-
-		*/
-		@params effective address of R0
+		/** 1) Here we loop for M number times, when
+		M is the size of confusion matrix.
+		2) Add all the elements in the same row */
 LOOP:
 		LDR R11, [R0, #4]	//0x0490B004
 		ADD R12, R12, R11	//0x008CC00B
