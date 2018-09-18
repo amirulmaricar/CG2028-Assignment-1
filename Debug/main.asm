@@ -27,20 +27,47 @@
   26 0008 3C000000 		.word	60
   27 000c 02000000 		.word	2
   28 0010 03000000 		.word	3
-  29 0014 0B000000 		.word	11
-  30 0018 2F000000 		.word	47
-  31 001c 07000000 		.word	7
-  32 0020 1B000000 		.word	27
-  33 0024 0E000000 		.word	14
-  34 0028 18000000 		.word	24
-  35              		.section	.text.main,"ax",%progbits
-  36              		.align	2
-  37              		.global	main
-  38              		.thumb
-  39              		.thumb_func
-  41              	main:
-  42              	.LFB0:
-  43              		.file 1 "../src/main.c"
+  29 0014 00000000 		.word	0
+  30 0018 00000000 		.word	0
+  31 001c 00000000 		.word	0
+  32 0020 0B000000 		.word	11
+  33 0024 2F000000 		.word	47
+  34 0028 07000000 		.word	7
+  35 002c 00000000 		.word	0
+  36 0030 00000000 		.word	0
+  37 0034 00000000 		.word	0
+  38 0038 1B000000 		.word	27
+  39 003c 0E000000 		.word	14
+  40 0040 18000000 		.word	24
+  41 0044 00000000 		.word	0
+  42 0048 00000000 		.word	0
+  43 004c 00000000 		.word	0
+  44 0050 00000000 		.word	0
+  45 0054 00000000 		.word	0
+  46 0058 00000000 		.word	0
+  47 005c 3C000000 		.word	60
+  48 0060 02000000 		.word	2
+  49 0064 03000000 		.word	3
+  50 0068 00000000 		.word	0
+  51 006c 00000000 		.word	0
+  52 0070 00000000 		.word	0
+  53 0074 0B000000 		.word	11
+  54 0078 2F000000 		.word	47
+  55 007c 07000000 		.word	7
+  56 0080 00000000 		.word	0
+  57 0084 00000000 		.word	0
+  58 0088 00000000 		.word	0
+  59 008c 1B000000 		.word	27
+  60 0090 0E000000 		.word	14
+  61 0094 18000000 		.word	24
+  62              		.section	.text.main,"ax",%progbits
+  63              		.align	2
+  64              		.global	main
+  65              		.thumb
+  66              		.thumb_func
+  68              	main:
+  69              	.LFB0:
+  70              		.file 1 "../src/main.c"
    1:../src/main.c **** #include "stdio.h"
    2:../src/main.c **** 
    3:../src/main.c **** extern int pdm(int* base, int ncol, int index);
@@ -50,129 +77,128 @@
    7:../src/main.c **** 
    8:../src/main.c **** // Dimension of confusion matrix, i.e. MxM square matrix
    9:../src/main.c **** // Note: pdm() must work for different values of M, e.g. M=10
-  10:../src/main.c **** #define M 3
+  10:../src/main.c **** #define M 6
   11:../src/main.c **** 
   12:../src/main.c **** int main(void)
   13:../src/main.c **** {
-  44              		.loc 1 13 0
-  45              		.cfi_startproc
-  46              		@ args = 0, pretend = 0, frame = 40
-  47              		@ frame_needed = 1, uses_anonymous_args = 0
-  48 0000 B0B5     		push	{r4, r5, r7, lr}
-  49              	.LCFI0:
-  50              		.cfi_def_cfa_offset 16
-  51              		.cfi_offset 14, -4
-  52              		.cfi_offset 7, -8
-  53              		.cfi_offset 5, -12
-  54              		.cfi_offset 4, -16
-  55 0002 8AB0     		sub	sp, sp, #40
-  56              	.LCFI1:
-  57              		.cfi_def_cfa_offset 56
-  58 0004 00AF     		add	r7, sp, #0
-  59              	.LCFI2:
-  60              		.cfi_def_cfa_register 7
+  71              		.loc 1 13 0
+  72              		.cfi_startproc
+  73              		@ args = 0, pretend = 0, frame = 152
+  74              		@ frame_needed = 1, uses_anonymous_args = 0
+  75 0000 90B5     		push	{r4, r7, lr}
+  76              	.LCFI0:
+  77              		.cfi_def_cfa_offset 12
+  78              		.cfi_offset 14, -4
+  79              		.cfi_offset 7, -8
+  80              		.cfi_offset 4, -12
+  81 0002 A7B0     		sub	sp, sp, #156
+  82              	.LCFI1:
+  83              		.cfi_def_cfa_offset 168
+  84 0004 00AF     		add	r7, sp, #0
+  85              	.LCFI2:
+  86              		.cfi_def_cfa_register 7
   14:../src/main.c **** 	// Variable definitions
   15:../src/main.c **** 	int index;
   16:../src/main.c **** 	// Note: different initialisation list is needed for different M
-  17:../src/main.c **** 	int CM[M][M]={{60,2,3},{11,47,7},{27,14,24}};
-  61              		.loc 1 17 0
-  62 0006 40F20003 		movw	r3, #:lower16:.LC0
-  63 000a C0F20003 		movt	r3, #:upper16:.LC0
-  64 000e 3C46     		mov	r4, r7
-  65 0010 1D46     		mov	r5, r3
-  66 0012 0FCD     		ldmia	r5!, {r0, r1, r2, r3}
-  67 0014 0FC4     		stmia	r4!, {r0, r1, r2, r3}
-  68 0016 0FCD     		ldmia	r5!, {r0, r1, r2, r3}
-  69 0018 0FC4     		stmia	r4!, {r0, r1, r2, r3}
-  70 001a 2B68     		ldr	r3, [r5, #0]
-  71 001c 2360     		str	r3, [r4, #0]
+  17:../src/main.c **** 	int CM[M][M]={{60,2,3,0,0,0},{11,47,7,0,0,0},{27,14,24,0,0,0},{0,0,0,60,2,3},{0,0,0,11,47,7},{0,0,
+  87              		.loc 1 17 0
+  88 0006 40F20003 		movw	r3, #:lower16:.LC0
+  89 000a C0F20003 		movt	r3, #:upper16:.LC0
+  90 000e 07F10401 		add	r1, r7, #4
+  91 0012 1A46     		mov	r2, r3
+  92 0014 4FF09003 		mov	r3, #144
+  93 0018 0846     		mov	r0, r1
+  94 001a 1146     		mov	r1, r2
+  95 001c 1A46     		mov	r2, r3
+  96 001e FFF7FEFF 		bl	memcpy
   18:../src/main.c **** 
   19:../src/main.c **** 	// PDm: Call assembly language function pdm() for each class m
   20:../src/main.c **** 	// note: index = m - 1
   21:../src/main.c **** 	for ( index=0; index<M; index++ )
-  72              		.loc 1 21 0
-  73 001e 4FF00003 		mov	r3, #0
-  74 0022 7B62     		str	r3, [r7, #36]
-  75 0024 20E0     		b	.L2
-  76              	.L3:
+  97              		.loc 1 21 0
+  98 0022 4FF00003 		mov	r3, #0
+  99 0026 C7F89430 		str	r3, [r7, #148]
+ 100 002a 24E0     		b	.L2
+ 101              	.L3:
   22:../src/main.c **** 		printf("%f \n", pdm((int*)CM, M, index)/10000.0);
-  77              		.loc 1 22 0 discriminator 2
-  78 0026 40F20004 		movw	r4, #:lower16:.LC1
-  79 002a C0F20004 		movt	r4, #:upper16:.LC1
-  80 002e 3B46     		mov	r3, r7
-  81 0030 1846     		mov	r0, r3
-  82 0032 4FF00301 		mov	r1, #3
-  83 0036 7A6A     		ldr	r2, [r7, #36]
-  84 0038 FFF7FEFF 		bl	pdm
-  85 003c 0346     		mov	r3, r0
-  86 003e 1846     		mov	r0, r3
-  87 0040 FFF7FEFF 		bl	__aeabi_i2d
-  88 0044 0246     		mov	r2, r0
-  89 0046 0B46     		mov	r3, r1
-  90 0048 1046     		mov	r0, r2
-  91 004a 1946     		mov	r1, r3
-  92 004c 0EA3     		adr	r3, .L5
-  93 004e D3E90023 		ldrd	r2, [r3]
-  94 0052 FFF7FEFF 		bl	__aeabi_ddiv
-  95 0056 0246     		mov	r2, r0
-  96 0058 0B46     		mov	r3, r1
-  97 005a 2046     		mov	r0, r4
-  98 005c FFF7FEFF 		bl	printf
+ 102              		.loc 1 22 0 discriminator 2
+ 103 002c 40F20004 		movw	r4, #:lower16:.LC1
+ 104 0030 C0F20004 		movt	r4, #:upper16:.LC1
+ 105 0034 07F10403 		add	r3, r7, #4
+ 106 0038 1846     		mov	r0, r3
+ 107 003a 4FF00601 		mov	r1, #6
+ 108 003e D7F89420 		ldr	r2, [r7, #148]
+ 109 0042 FFF7FEFF 		bl	pdm
+ 110 0046 0346     		mov	r3, r0
+ 111 0048 1846     		mov	r0, r3
+ 112 004a FFF7FEFF 		bl	__aeabi_i2d
+ 113 004e 0246     		mov	r2, r0
+ 114 0050 0B46     		mov	r3, r1
+ 115 0052 1046     		mov	r0, r2
+ 116 0054 1946     		mov	r1, r3
+ 117 0056 10A3     		adr	r3, .L5
+ 118 0058 D3E90023 		ldrd	r2, [r3]
+ 119 005c FFF7FEFF 		bl	__aeabi_ddiv
+ 120 0060 0246     		mov	r2, r0
+ 121 0062 0B46     		mov	r3, r1
+ 122 0064 2046     		mov	r0, r4
+ 123 0066 FFF7FEFF 		bl	printf
   21:../src/main.c **** 	for ( index=0; index<M; index++ )
-  99              		.loc 1 21 0 discriminator 2
- 100 0060 7B6A     		ldr	r3, [r7, #36]
- 101 0062 03F10103 		add	r3, r3, #1
- 102 0066 7B62     		str	r3, [r7, #36]
- 103              	.L2:
+ 124              		.loc 1 21 0 discriminator 2
+ 125 006a D7F89430 		ldr	r3, [r7, #148]
+ 126 006e 03F10103 		add	r3, r3, #1
+ 127 0072 C7F89430 		str	r3, [r7, #148]
+ 128              	.L2:
   21:../src/main.c **** 	for ( index=0; index<M; index++ )
- 104              		.loc 1 21 0 is_stmt 0 discriminator 1
- 105 0068 7B6A     		ldr	r3, [r7, #36]
- 106 006a 022B     		cmp	r3, #2
- 107 006c DBDD     		ble	.L3
- 108              	.L4:
+ 129              		.loc 1 21 0 is_stmt 0 discriminator 1
+ 130 0076 D7F89430 		ldr	r3, [r7, #148]
+ 131 007a 052B     		cmp	r3, #5
+ 132 007c D6DD     		ble	.L3
+ 133              	.L4:
   23:../src/main.c **** 
   24:../src/main.c **** 	// Enter an infinite loop, just incrementing a counter
   25:../src/main.c **** 	volatile static int loop = 0;
   26:../src/main.c **** 	while (1) {
   27:../src/main.c **** 		loop++;
- 109              		.loc 1 27 0 is_stmt 1 discriminator 1
- 110 006e 40F20003 		movw	r3, #:lower16:loop.3818
- 111 0072 C0F20003 		movt	r3, #:upper16:loop.3818
- 112 0076 1B68     		ldr	r3, [r3, #0]
- 113 0078 03F10102 		add	r2, r3, #1
- 114 007c 40F20003 		movw	r3, #:lower16:loop.3818
- 115 0080 C0F20003 		movt	r3, #:upper16:loop.3818
- 116 0084 1A60     		str	r2, [r3, #0]
+ 134              		.loc 1 27 0 is_stmt 1 discriminator 1
+ 135 007e 40F20003 		movw	r3, #:lower16:loop.3818
+ 136 0082 C0F20003 		movt	r3, #:upper16:loop.3818
+ 137 0086 1B68     		ldr	r3, [r3, #0]
+ 138 0088 03F10102 		add	r2, r3, #1
+ 139 008c 40F20003 		movw	r3, #:lower16:loop.3818
+ 140 0090 C0F20003 		movt	r3, #:upper16:loop.3818
+ 141 0094 1A60     		str	r2, [r3, #0]
   28:../src/main.c **** 	}
- 117              		.loc 1 28 0 discriminator 1
- 118 0086 F2E7     		b	.L4
- 119              	.L6:
- 120              		.align	3
- 121              	.L5:
- 122 0088 00000000 		.word	0
- 123 008c 0088C340 		.word	1086556160
- 124              		.cfi_endproc
- 125              	.LFE0:
- 127              		.bss
- 128              		.align	2
- 129              	loop.3818:
- 130 0000 00000000 		.space	4
- 131              		.text
- 132              	.Letext0:
+ 142              		.loc 1 28 0 discriminator 1
+ 143 0096 F2E7     		b	.L4
+ 144              	.L6:
+ 145              		.align	3
+ 146              	.L5:
+ 147 0098 00000000 		.word	0
+ 148 009c 0088C340 		.word	1086556160
+ 149              		.cfi_endproc
+ 150              	.LFE0:
+ 152              		.bss
+ 153              		.align	2
+ 154              	loop.3818:
+ 155 0000 00000000 		.space	4
+ 156              		.text
+ 157              	.Letext0:
 DEFINED SYMBOLS
                             *ABS*:00000000 main.c
-C:\Users\User\AppData\Local\Temp\cceVDdA2.s:19     .rodata:00000000 $d
-C:\Users\User\AppData\Local\Temp\cceVDdA2.s:20     .rodata:00000000 .LC1
-C:\Users\User\AppData\Local\Temp\cceVDdA2.s:25     .rodata:00000008 .LC0
-C:\Users\User\AppData\Local\Temp\cceVDdA2.s:36     .text.main:00000000 $t
-C:\Users\User\AppData\Local\Temp\cceVDdA2.s:41     .text.main:00000000 main
-C:\Users\User\AppData\Local\Temp\cceVDdA2.s:129    .bss:00000000 loop.3818
-C:\Users\User\AppData\Local\Temp\cceVDdA2.s:122    .text.main:00000088 $d
-C:\Users\User\AppData\Local\Temp\cceVDdA2.s:128    .bss:00000000 $d
+C:\Users\User\AppData\Local\Temp\ccoFSPGQ.s:19     .rodata:00000000 $d
+C:\Users\User\AppData\Local\Temp\ccoFSPGQ.s:20     .rodata:00000000 .LC1
+C:\Users\User\AppData\Local\Temp\ccoFSPGQ.s:25     .rodata:00000008 .LC0
+C:\Users\User\AppData\Local\Temp\ccoFSPGQ.s:63     .text.main:00000000 $t
+C:\Users\User\AppData\Local\Temp\ccoFSPGQ.s:68     .text.main:00000000 main
+C:\Users\User\AppData\Local\Temp\ccoFSPGQ.s:154    .bss:00000000 loop.3818
+C:\Users\User\AppData\Local\Temp\ccoFSPGQ.s:147    .text.main:00000098 $d
+C:\Users\User\AppData\Local\Temp\ccoFSPGQ.s:153    .bss:00000000 $d
                      .debug_frame:00000010 $d
 
 UNDEFINED SYMBOLS
 __aeabi_i2d
 __aeabi_ddiv
+memcpy
 pdm
 printf

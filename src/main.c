@@ -7,14 +7,14 @@ extern int pdm(int* base, int ncol, int index);
 
 // Dimension of confusion matrix, i.e. MxM square matrix
 // Note: pdm() must work for different values of M, e.g. M=10
-#define M 3
+#define M 6
 
 int main(void)
 {
 	// Variable definitions
 	int index;
 	// Note: different initialisation list is needed for different M
-	int CM[M][M]={{60,2,3},{11,47,7},{27,14,24}};
+	int CM[M][M]={{60,2,3,0,0,0},{11,47,7,0,0,0},{27,14,24,0,0,0},{0,0,0,60,2,3},{0,0,0,11,47,7},{0,0,0,27,14,24}};
 
 	// PDm: Call assembly language function pdm() for each class m
 	// note: index = m - 1
